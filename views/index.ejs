@@ -1,0 +1,13 @@
+DELETE FROM team_affiliation;
+DELETE FROM team;
+DELETE FROM user WHERE userid>2;
+DELETE FROM userrole WHERE userid>2;
+INSERT INTO user (userid, username, name, password, enabled) VALUES (3, 'ball', 'Ballon', ball, 1);
+INSERT INTO userrole (userid, roleid) VALUES (3, 4);
+<% i = 1 %>
+<% users.forEach(function(user) { %>
+INSERT INTO team (teamid, name, categoryid, enabled) VALUES (<%=i%>, '<%= user.name%>', 2, 1);
+INSERT INTO user (userid, username, name, enabled, teamid) VALUES (<%=i+3%>, 't<%=i%>', '<%=user.nick%>', 1, <%=i%>);
+INSERT INTO userrole (userid, roleid) VALUES (<%=i+3%>, 3);
+<% i += 1 %>
+<% }) %>
