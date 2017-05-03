@@ -1,13 +1,20 @@
 DELETE FROM team_affiliation;
+
+INSERT INTO team_affiliation(affilid, shortname, name) VALUES(1, 'NULL', '未知学校');
+<% aff.forEach(function(affi, index) {%>
+INSERT INTO team_affiliation(affilid, shortname, name) VALUES(<%= index+2%>, '<%= affi.shortname%>', '<%= affi.name%>');
+<%})%>
+
 DELETE FROM team;
 DELETE FROM user WHERE userid>2;
 DELETE FROM userrole WHERE userid>2;
-INSERT INTO user (userid, username, name, password, enabled) VALUES (3, 'ball', 'Ballon', ball, 1);
+INSERT INTO user (userid, username, name, password, enabled) VALUES (3, 'ball', 'Ballon', 'ball', 1);
 INSERT INTO userrole (userid, roleid) VALUES (3, 4);
 <% i = 1 %>
 <% users.forEach(function(user) { %>
-INSERT INTO team (teamid, name, categoryid, enabled) VALUES (<%=i%>, '<%= user.name%>', 2, 1);
-INSERT INTO user (userid, username, name, enabled, teamid) VALUES (<%=i+3%>, 't<%=i%>', '<%=user.nick%>', 1, <%=i%>);
+INSERT INTO team (teamid, name, categoryid, affilid, enabled) VALUES (<%=i%>, '<%=user.nick%>', 2, <%= user.school%>, 1);
+INSERT INTO user (userid, username, name, enabled, teamid) VALUES (<%=i+3%>, 't<%=i%>', '<%= user.teamer1%>,<%= user.teamer2%>,<%= user.teamer3%>', 1, <%=i%>);
 INSERT INTO userrole (userid, roleid) VALUES (<%=i+3%>, 3);
 <% i += 1 %>
 <% }) %>
+    

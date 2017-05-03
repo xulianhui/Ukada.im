@@ -1,0 +1,34 @@
+module.exports = [
+  {
+    name:'华中师范大学',
+    shortname:'CCNU'
+  },
+  {
+    name:'华中农业大学',
+    shortname:'HZAU'
+  },
+  {
+    name:'武汉理工大学',
+    shortname:'WHUT'
+  },
+  {
+    name:'武汉大学',
+    shortname:'WHU'
+  },
+  {
+    name:'华中科技大学',
+    shortname:'HUST'
+  },
+  {
+    name:'武汉科技大学',
+    shortname:'WUST'
+  },
+  {
+    name:'中南民族大学',
+    shortname:'SCUEC'
+  },
+  {
+    name:'中国地质大学',
+    shortname:'CUG'
+  },
+]

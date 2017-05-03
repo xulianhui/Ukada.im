@@ -23,7 +23,7 @@ var getRes = function (querystr, callback) {
 module.exports = dao;
 
 dao.getData = function(callback) {
-	var sqlstr = sqlstring.format('select name, nick from users');
+	var sqlstr = sqlstring.format('select * from users where statu = 2');
 
 	getRes(sqlstr, function(err, ans) {
 		if (err) {
